@@ -95,6 +95,33 @@ print(f'Час сортування масиву з < {len(test_array_short)} > 
 print(f'Час сортування масиву з < {len(test_array_medium)} > ел. методом Merge sort {t_merge_sort_medium}')
 print(f'Час сортування масиву з < {len(test_array_long)} > ел. методом Merge sort {t_merge_sort_long}')
 
+print(50 * '-')
+
+
+
+# Побудова Графіківвізуалізації 
+import matplotlib.pyplot as plt
+
+sizes = [len(test_array_short), len(test_array_medium), len(test_array_long)]
+timsort_times = [t_timsort_sort_short, t_timsort_sort_medium, t_timsort_sort_long]
+insertion_times = [t_insertion_sort_short, t_insertion_sort_medium, t_insertion_sort_long]
+merge_times = [t_merge_sort_short, t_merge_sort_medium, t_merge_sort_long]
+
+plt.figure(figsize=(10, 6))
+
+plt.plot(sizes, timsort_times, label="Timsort", marker='o')
+plt.plot(sizes, insertion_times, label="Insertion Sort", marker='o')
+plt.plot(sizes, merge_times, label="Merge Sort", marker='o')
+
+plt.xlabel("Розмір масиву")
+plt.ylabel("Час виконання (сек)")
+plt.title("Порівняння алгоритмів сортування")
+plt.legend()
+plt.grid()
+plt.show()
+
+
+
 # Висновки
 
 # Merge Sort демонструє стабільну продуктивність на великих масивах.
